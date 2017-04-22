@@ -31,7 +31,7 @@ def move_mouse_to_center():
              duration=MOUSE_MOVE_DURATION, tween=p.easeInOutQuad)
 
 def switch_to_spanish_keyboard():
-    p.press('f10')
+    os.system('setxkbmap -option ctrl:swapcaps latam')
 
 def wait(seconds):
     time.sleep(seconds)
