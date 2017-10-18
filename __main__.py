@@ -7,9 +7,9 @@ import os
 
 log = logging.getLogger('go')
 
-BOOKMARK_MENU_PATH = 'imgs/book-menu.png'
-BOOKMARK_PATH = 'imgs/book.png'
-BOOKMARK_GROUP_PATH = 'imgs/start.png'
+BOOKMARK_MENU_PATH = 'imgs/bookmarks-menu.png'
+BOOKMARK_PATH = 'imgs/bookmarks-toolbar.png'
+BOOKMARK_GROUP_PATH = 'imgs/start-menu.png'
 
 p.PAUSE = 0.3
 TYPE_INTERVAL_DEFAULT = 0.05
@@ -84,6 +84,7 @@ def firefox_close_tab(tab_number):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
+    logging.getLogger('PIL').setLevel(logging.INFO)
     log.info('running go script')
     log.debug('pyautogui.PAUSE = {} ; type interval = {}'
                   .format(p.PAUSE, TYPE_INTERVAL_DEFAULT))
