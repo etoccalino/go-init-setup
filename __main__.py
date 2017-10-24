@@ -67,12 +67,12 @@ def firefox_unfold_bookmarks(bookmarks_target_path=BOOKMARK_PATH):
     p.moveTo(*item_pos, duration=MOUSE_MOVE_DURATION)
     p.click()
 
-@retry(tries=3)
+@retry(tries=5, delay=1)
 def firefox_open_all_tabs_under_START_group(group_target_path=BOOKMARK_GROUP_PATH):
     item_pos = p.locateCenterOnScreen(group_target_path, grayscale=True)
     if item_pos is None:
         log.debug('could not find it... retry?')
-        raise RuntimeError('couldn not find group manu item')
+        raise RuntimeError('couldn\'t not find group manu item')
     log.debug('menu item found, opening tabs')
     p.moveTo(*item_pos, duration=MOUSE_MOVE_DURATION)
     p.rightClick()
