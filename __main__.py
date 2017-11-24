@@ -72,7 +72,7 @@ def firefox_open_all_tabs_under_START_group(group_target_path=BOOKMARK_GROUP_PAT
     item_pos = p.locateCenterOnScreen(group_target_path, grayscale=True)
     if item_pos is None:
         log.debug('could not find it... retry?')
-        raise RuntimeError('couldn\'t not find group manu item')
+        raise RuntimeError('could not find group menu item')
     log.debug('menu item found, opening tabs')
     p.moveTo(*item_pos, duration=MOUSE_MOVE_DURATION)
     p.rightClick()
