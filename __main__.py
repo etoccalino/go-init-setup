@@ -47,6 +47,7 @@ def wait(seconds):
 def firefox_open_bookmarks_menu(bmenu_target_path=BOOKMARK_MENU_PATH):
     '''Open bookmarks sidemenu, if not already open'''
     if p.locateOnScreen(bmenu_target_path, grayscale=True) is None:
+        log.info('bookmark menu not found. Opening.')
         p.hotkey('ctrl', 'b')
     else:
         log.debug('found the bookmark menu, assuming it is open')
@@ -71,8 +72,8 @@ def firefox_unfold_bookmarks(bookmarks_target_path=BOOKMARK_PATH):
 def firefox_open_all_tabs_under_START_group(group_target_path=BOOKMARK_GROUP_PATH):
     item_pos = p.locateCenterOnScreen(group_target_path, grayscale=True)
     if item_pos is None:
-        log.debug('could not find it... retry?')
-        raise RuntimeError('could not find group menu item')
+        log.debug('could not find the "start" menu item')
+        raise RuntimeError('could not find the "start" group menu item')
     log.debug('menu item found, opening tabs')
     p.moveTo(*item_pos, duration=MOUSE_MOVE_DURATION)
     p.rightClick()
